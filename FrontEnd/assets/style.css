@@ -23,41 +23,61 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
+/*#################### ALL STRONG IS BOLD ################*/
+strong {
+	font-weight: bold;
+}
+
 body {
 	line-height: 1;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-/** end reset css**/
+
 body {
 	max-width: 1140px;
-	margin:auto;
-	font-family: 'Work Sans' ;
+	margin: auto;
+	font-family: 'Work Sans';
 	font-size: 14px;
+	min-height: 100vh; /*ON PREND TOUTE LA HAUTEUR DU SCREEN*/
+	display: flex; /*CONTENEUR FLEX*/
+	flex-direction: column; /*ON EMPILE VERTICALEMENT*/
 }
+
+main{
+	flex-grow: 1; /*LE MAIN PREND TOUT L'ESPACE DISPONIBLE POUR POUSSER LE FOOTER EN BAS DE PAGE*/
+}
+
 header {
 	display: flex;
 	justify-content: space-between;
 	margin: 50px 0
 }
+
 section {
 	margin: 50px 0
 }
@@ -84,12 +104,14 @@ h2{
 	font-size: 30px;
 	color: #1D6154
 }
+
 nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
 
 }
+
 nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
@@ -98,13 +120,28 @@ nav li {
 li:hover {
 	color: #B1663C;
 }
+
+/*###### COULEUR DES LIENS ET RETRAIT DE L'UNDERLINE ###*/
+nav li a {
+	color:black;
+	text-decoration: none;
+}
+
+/*##### CHGT DE COULEUR AU PASSAGE DE LA SOURIS SUR LES LIENS DE NAVIGATION #####*/
+nav li a:hover {
+	color: #B1663C;
+	text-decoration: none;
+}
+
 #introduction {
 	display: flex;
 	align-items: center;
 }
+
 #introduction figure {
 	flex: 1
 }
+
 #introduction img {
 	display: block;
 	margin: auto;
@@ -114,6 +151,7 @@ li:hover {
 #introduction article {
 	flex: 1
 }
+
 #introduction h2 {
 	margin-bottom: 1em;
 }
@@ -121,10 +159,19 @@ li:hover {
 #introduction p {
 	margin-bottom: 0.5em;
 }
+
 #portfolio h2 {
+	display: flex;
 	text-align: center;
+	justify-content: center;
 	margin-bottom: 1em;
+	gap: 10px;
 }
+
+.admin-edit {
+    font-size: 14px;
+}
+
 .gallery {
 	width: 100%;
 	display: grid;
@@ -135,38 +182,62 @@ li:hover {
 
 .gallery img {
 	width: 100%;
+}
 
-}
-#contact {
+/*####### MISE EN FORME DES ELEMENTS CONTACT ET LOGIN #########*/
+#contact, 
+#login {
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
-#contact > * {
+
+/*####### ON POUSSE LE BLOC VERS LE BAS POUR AERER ################*/
+#login{
+	margin-top: 75px;
+}
+
+/*####### CENTRAGE DES ENFANTS DIRECTS DE CONTACT ET LOGIN  ######*/
+#contact > *, 
+#login > * {
 	text-align: center;
 
 }
-#contact h2{
+
+/*###### AJOUTE 20PX EN DESSOUS DE CE QUI SE TROUVE DANS CONTACT ET LOGIN ####*/
+#contact h2, 
+#login h2 {
 	margin-bottom: 20px;
 }
-#contact form {
-	text-align: left;
-	margin-top:30px;
-	display: flex;
-	flex-direction: column;
+
+/*###### MISE EN FORME DU FORMULAIRE ##########*/
+#contact form, 
+#login form {
+	text-align: left; /*ALIGNEMENT A GAUCHE*/
+	margin-top:30px; /*ESPACE AU DESSUS DU FORM*/
+	display: flex; /*CONTENEUR FLEX*/
+	flex-direction: column; /*ON EMPILE VERTICALEMENT*/ 
 }
 
-#contact input {
-	height: 50px;
-	font-size: 1.2em;
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+/*###### CIBLE LES INPUTS DE CES CHAMPS ET MET EN FORME ################*/
+#contact input, 
+.login-input{
+	height: 50px; /*HAUTEUR DES CHAMPS*/
+	font-size: 1.2em; /*TAILLE DE LA POLICE*/
+	border: none; /*SUPPRIME LA BORDE DES CHAMPS*/
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09); /*AJOUT D'UNE OMBRE POUR FAIRE UN EFFET DE PROFONDEUR*/
 }
-#contact label {
-	margin: 2em 0 1em 0;
+
+/*###### STYLE DES LABELS #########*/
+#contact label, 
+#login label {
+	margin: 2em 0 1em 0; /*ESPACE AU DESSUS ET EN DESSOUS DES LABELS*/
 }
-#contact textarea {
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+
+/*###### MISE EN FORME DES ZONES DE TEXTE ##############*/
+#contact textarea, 
+#login textarea {
+	border: none; /*SUPPRIME LA BORDURE DES ZONES DE TEXTE*/
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09); /*AJOUT D'UNE OMBRE POUR FAIRE UN EFFET DE PROFONDEUR*/
 }
 
 input[type="submit"]{
@@ -180,9 +251,412 @@ input[type="submit"]{
 	border-radius: 60px ;
 }
 
+/*###### STYLE DES ELEMENTS QUI SE TROUVENT DANS LOGIN ########*/
+#login a {
+	color: black;
+}
+
+/*#################### MISE EN PLACE DES BOUTONS DE FILTRAGE################*/
+.filter-container{
+    grid-column: 1 / 4;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 25px 0;
+}   
+
+.filter-button {
+    font-family: 'Syne';
+    font-weight: 700;
+    font-size: 1.2em;
+    color: #1D6154;
+	background-color: white;
+    text-align: center;
+    border-radius: 40px;
+    padding: 8px 20px;
+    border: 1px solid #1D6154;
+	cursor: pointer;
+}
+
+.button-clicked {
+	background-color: #1D6154;
+	color: white;
+}
+
+.testButtonActive{
+	background-color: orange;
+}
+
+/*#################### MISE EN FORME DES MESSAGES D'ERREUR ################*/
+.red {
+	background-color: red;
+}
+
+#loginMessage {
+	margin: auto;
+	margin-top: 30px;
+	color:red;
+}
+
+.missing-information {
+	margin: auto;
+	color:red;
+	position: relative;
+	bottom: 50px;
+}
+
+/*#################### CLASSE POUR CACHER LES ELEMENTS QUI NE DOIVENT PAS ETRE VISIBLE ################*/
+.no-missing-information, .admin-disconnected, .modal-hidden, .unselected,
+ .arrow-icon-containter, .submit-no-photo-preview, input[type='file'] {
+	display: none;
+}
+
+/*#################### MISE EN FORME DE LA PAGE DE CONNEXION ################*/
+#login {
+	width: 379px;
+}
+
+#login-submit {
+	width: 180px;
+	padding: 10px;
+	font-size: 14px;
+	border: none;
+	cursor: pointer;
+}
+
+#delete {
+	font-size: 14px;
+	color:#D65353;
+	text-decoration: none;
+}
+
+.admin-header {
+	width: 100vw;
+	top: 0;
+	left: 0;
+	margin: 0;
+	margin-left: calc(-1 * ((100vw - 100%) / 2));
+	padding: 15px 0 15px 0;
+	background-color: black;
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	align-items: center;
+	color: white;
+}
+
+.admin-link {
+	text-decoration: none;
+	display: flex;
+	gap: 5px;
+	font-size: 16px;
+	font-weight: 400;
+	cursor: pointer;
+}
+
+.admin-link :hover {
+	text-decoration: underline;
+}
+
+.admin-link-modify {
+	font-family: 'Work Sans';
+	font-size: 16px;
+	font-weight: 500;
+	color: black;
+}
+
+#edit-picture{
+	margin-left: 55px;
+	margin-top: 10px;
+}
+
+#edit-biography{
+	top: 260px;
+	margin-top: 5px;
+}
+
+#edit-project{
+	right: 37%;
+	top: 608px;
+	margin-top: 5px;
+}
+
+.modal-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.4);
+	width: 100vw;
+	height: 100vh;
+}
+
+.modal-window {
+	background-color: white;
+	width: 630px;
+	height: 730px;
+	margin: auto;
+	margin-top: 100px;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.icon-wrapper {
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.fa-xmark{
+	align-self: end;
+	font-size: 20px;
+	margin: 30px 30px 20px 30px;
+}
+
+.fa-arrow-left{
+	font-size: 20px;
+	margin: 30px 30px 20px 30px;
+	cursor: pointer;
+}
+
+#edit-project{
+	justify-content: center;
+}
+
+.admin-title{
+	font-family: 'Work Sans';
+	font-weight: 400;
+	font-size: 26px;
+	color: black;
+}
+
+#photo-edit-container {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	margin-top: 45px;
+	margin-bottom: 35px;
+	overflow: auto;
+}
+
+.photo-edit-card{
+	background-color: white;
+	padding: 5px;
+	padding-bottom: 22px;
+	cursor: pointer;
+}
+
+.photo-edit-card:hover {
+	box-shadow: 0 0 0 1px #B3B3B3 inset;
+}
+
+.photo-edit-card figure{
+	width:78px;
+	height: 105px;
+	bottom: 40px;
+	position: relative;
+	top: 0px;
+}
+
+.photo-edit-card img{
+	width: 100%;
+	height: 105px;
+    object-fit: cover;
+}
+
+hr {
+	width: 430px;
+	background-color: #B3B3B3;
+	height: 1px;
+	border: none;
+}
+
+.icon-container-wrapper{
+	display: flex;
+	flex-direction: row-reverse;
+	flex: 0 0 auto;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	font-size: 12px;
+	gap: 2px;
+}
+
+.icon-container {
+	padding: 5px;
+	background-color: black;
+	border-radius: 5px;
+}
+
+.icon-container i {
+	color: white;
+}
+
+.photo-edit-card:hover .arrow-icon-container{
+	display: block;
+}
+
+.fa-xmark{
+	cursor: pointer;
+}
+
+/*#################### MISE EN FORME DES BOUTONS DE LA MODAL ################*/
+.modal-button{
+	margin-top: 35px;
+	margin-bottom: 25px;
+	padding: 10px 40px 10px 40px;
+	font-family: 'Syne';
+	font-size: 14px;
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin : 2em auto 1.5em auto;
+	text-align: center;
+	border-radius: 60px;
+	border: none;
+	cursor: pointer;
+}
+
+/*#################### MISE EN FORME DE LA PARTIE SUBMIT PHOTO DE LA MODAL ################*/
+.submit-photo-frame{
+	width: 420px;
+	height: 169px;
+	border-radius: 3px;
+	margin-top: 45px;
+	background-color: #E8F1F6;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.fa-image{
+	color: #B9C5CC;
+	font-size: 45px;
+	margin-top: 25px;
+}
+
+/*#################### MISE EN FORME DU BOUTON DE SELECTION DE FICHIER ################*/
+.submit-photo-content-button {
+	background-color: #CBD6DC;
+	color: #306685;
+	padding: 10px 40px 10px 40px;
+	font-family: 'Syne';
+	font-size: 14px;
+	font-weight: 700;
+	text-align: center;
+	border-radius: 60px;
+	border: none;
+	cursor: pointer;
+}
+
+.submit-photo-content-text {
+	font-family: 'Work Sans';
+	font-size: 10px;
+	margin-top: 10px;
+}
+
+.submit-photo-form{
+	display: flex;
+	flex-direction: column;
+}
+
+.submit-photo-form label {
+	font-family: 'Work Sans';
+	font-size: 14px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.submit-photo-form-input {
+	width: 420px;
+	height: 51px;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	border: none;
+	font-family: 'Work Sans';
+	font-size: 14px;
+}
+
+.submit-photo-form hr {
+	margin-top: 45px;
+}
+
+#submit-photo-form-submit {
+	width: 240px;
+	font-size: 14px;
+	padding: 10px;
+	border: none;
+	background-color: #A7A7A7;
+	cursor: pointer;
+}
+
+  input[type='file'] + label{
+	background-color: #CBD6DC;
+	color: #306685;
+	padding: 10px 40px 10px 40px;
+	font-family: 'Syne';
+	font-size: 14px;
+	font-weight: 700;
+	text-align: center;
+	border-radius: 60px;
+	border: none;
+	cursor: pointer;
+  }
+
+  
+.submit-photo-preview {
+	width: 130px;
+	height: 169px;
+	position: absolute;
+}
+
+.submit-photo-preview-image {
+	width: 100%;
+	height: 169px;
+    object-fit: cover;
+}
+
+.preview-container-icon-trash {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	cursor: pointer;
+}
+
+select {
+	background-color: white;
+}
+
+#submit-photo-form-submit.submit-ready {
+	background-color: #1D6154;
+}
+
+/*#################### MISE EN FORME DU MESSAGE DE CONFIRMATION DE LA CREATION D'UN PROJET ################*/
+.new-project {
+	background-color: green;
+	padding: 20px;
+	width: 70%;
+	margin: auto;
+	transition-property: opacity;
+	transition-duration: 1s;
+	border-radius: 50px;
+	color: white;
+	font-family: 'Syne';
+	opacity: 0;
+}
+
+.new-project p {
+	text-align: center;
+}
+
+.sent{
+	opacity: 1;
+}
+
+/*#################### MISE EN FORME DU NAVIGATION DU FOOTER ################*/
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	margin: 2em;
 }
-
