@@ -58,8 +58,6 @@ const createButton = async () => {
     }
 };
 
-createButton();
-
 // FONCTION GESTION DES BOUTONS
 const buttonClicked = (buttonId, categoryName, isItAllTheWork) => {
     const id = "#"+buttonId;
@@ -208,6 +206,21 @@ const linkLogOut = () => {
         logOut(htmlLinkLogOut);
     }
 };
+
+// AFFICHAGE DES TRAVAUX
+getAllWorks();
+
+// SI PAS CONNECTÉ → AFFICHER LES FILTRES
+    if (!isToken()) {
+        displayButton();
+        createButton();
+    } else {
+        // SI CONNECTÉ → CACHER LE CONTENEUR DES FILTRES
+        const filters = document.querySelector("#sort-container");
+        if (filters) {
+            filters.classList.add("hide");
+        }
+    }
 
 linkLogOut();
 

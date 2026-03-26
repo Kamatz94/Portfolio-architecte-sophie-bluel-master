@@ -366,6 +366,10 @@ input[type="submit"]{
 	color: black;
 }
 
+.hide{
+	display: none;
+}
+
 #edit-picture{
 	margin-left: 55px;
 	margin-top: 10px;
