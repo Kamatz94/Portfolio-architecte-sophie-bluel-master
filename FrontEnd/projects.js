@@ -637,7 +637,6 @@ const previousWindowModal = () => {
 };
 
 /*######## FERMETURE DE LA MODALE #########*/
-
 const closeModal = () => {
     const modalWindow = document.querySelector(".modal");
     modalWindow.classList.add("modal-hidden");
@@ -652,7 +651,21 @@ const closeModalCross = () => {
         closeModal();
     });
 };
+// GESTION DU CLIQUE EN DEHORS DE LA FENETRE MODALE POUR FERMETURE DE CELLE-CI
+const closeModalClickOut = () => {
+    // ARRIERE PLAN
+    const modalWrapper = document.querySelector(".modal-container");
+    //FENETRE MODALE
+    const modalWindow = document.querySelector(".modal-window");
 
+    if (!modalWrapper || !modalWindow) return;
+    // PERMET DE NE PAS FERMER LA MODALE LORSQU'ON CLIQUE A L'INTERIEUR DE CELLE-CI
+    modalWindow.addEventListener("click", (event) => {
+        event.stopPropagation();
+    });
+    // FERME LA MODALE AU CLIQUE EXTERIEUR DE CELLE-CI
+    modalWrapper.addEventListener("click", closeModal);
+};
 
 /*############################################################### SUPPRESSION DE PROJET ########################################################################*/
 
