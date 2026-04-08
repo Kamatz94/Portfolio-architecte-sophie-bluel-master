@@ -1,0 +1,25 @@
+{
+  "name": "portfolio-architecte-sophie-bluel-master",
+  "version": "1.0.0",
+  "description": "Code du projet 6 d'intégrateur web.",
+  "homepage": "https://github.com/Kamatz94/Portfolio-architecte-sophie-bluel-master#readme",
+  "bugs": {
+    "url": "https://github.com/Kamatz94/Portfolio-architecte-sophie-bluel-master/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kamatz94/Portfolio-architecte-sophie-bluel-master.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.1.0",
+    "globals": "^17.4.0"
+  }
+}

@@ -651,6 +651,7 @@ const closeModalCross = () => {
         closeModal();
     });
 };
+
 // GESTION DU CLIQUE EN DEHORS DE LA FENETRE MODALE POUR FERMETURE DE CELLE-CI
 const closeModalClickOut = () => {
     // ARRIERE PLAN
@@ -689,7 +690,6 @@ const deleteWork = () => {
 };
 
 // CLIQUE POUR SUPPRESSION DE TOUS LES PROJETS
-
 const deleteAllWorks = () => {
     const deleteAllProjectLink = document.querySelector("#delete");
     deleteAllProjectLink.addEventListener("click", async (event) => {
