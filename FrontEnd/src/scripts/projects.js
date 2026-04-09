@@ -98,7 +98,7 @@ const getAllWorks = async () => {
     }
 };
 
-// RECUPE DES TRAVAUX POST FILTAGE
+// RECUPE DES TRAVAUX POST FILTRAGE
 const filteredWorks = async (categoryName) => {
     try {
         const filteredWorks = await allWorks();
@@ -435,7 +435,7 @@ const modalWindowAddPhoto = () => {
         const submitPhotoForm = document.createElement("form");
         submitPhotoForm.setAttribute("class","submit-photo-form");
         submitPhotoForm.setAttribute("id","button-submit-photo-form");
-
+        
         const submitPhotoContentButton = document.createElement("input");
         submitPhotoContentButton.setAttribute("class","submit-photo-content-button");
         submitPhotoContentButton.setAttribute("id","new-project-image");

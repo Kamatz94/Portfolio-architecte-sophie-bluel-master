@@ -35,7 +35,7 @@ const getData = () => {
 
 getData();
 
-//envoi des information et retour du token si informations correctes
+//ENVOI DES INFORMATIONS ET RETOUR DU TOKEN SI INFORMATIONS CORRECTES
 const testLogin = async (valueUserEmail, valueUserPassword) => {
     try {
         // ENVOI DE LA REQUETE A L'API AVEC LES IDENTIFIANTS
@@ -48,7 +48,7 @@ const testLogin = async (valueUserEmail, valueUserPassword) => {
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json;charset=utf-8",
-                //permet de contourner l'erreur CORS
+                //PERMET DE CONTOURNER L'ERREUR CORS
                 "Access-Control-Allow-Origin": "*"
             },
         });
